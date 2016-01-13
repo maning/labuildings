@@ -39,7 +39,7 @@ def convert(buildingsFile, osmOut):
 
         # These are the addresses that don't overlap any buildings
         elif feature['geometry']['type'] == 'Point':
-            # The key is the coordinates of this address. Track how many addresses share these coords.
+        # The key is the coordinates of this address. Track how many addresses share these coords.
             key = keyFromAddress(feature)
             if key in allAddresses:
                 allAddresses[key].append(feature)
@@ -441,13 +441,12 @@ def convert(buildingsFile, osmOut):
             else:
                 # We could not distilled down to one address. Instead export as nodes.
                 for address in distilledAddresses:
-                    # The key is the coordinates of this address. Track how many addresses share these coords.
+                # The key is the coordinates of this address. Track how many addresses share these coords.
                     key = keyFromAddress(address)
                     if key in allAddresses:
                         allAddresses[key].append(address)
                     else:
                         allAddresses[key] = [address]
-
         appendBuilding(buildings[i], buildingShapes[i], address, osmXml)
 
 
